@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}
+    Profile Page
+{% endblock %}
+
+{% block content %}
+        <div class="test_decoration">
+            <ul class="wrapper">   
+                <div class="avatar_wrap">
+                     <img class="avatar_img" src="{{ object.avatar.url }}" alt="">
+                </div>
+                {% for val in object.values %}
+                    <li>{{ val }}</li>
+                {% endfor %}
+                    <div class="ram">
+                        <li>
+                            {% blocktranslate %}Foydalanuvchi nomi{% endblocktranslate %}:
+                            {{ user.username }}
+                        </li>
+                        <li>
+                            {% blocktranslate %}Foydalanuvchi pochtasi{% endblocktranslate %}:
+                            {{ user.email }}
+                        </li>
+                    </div>
+                {% if user %}
+    
+                {% else %}
+                    <li>
+                        {{ user.first_name }}</li>
+                    <li>
+                        {{ user.gmail }}</li>
+                {% endif %}
+            </ul>
+            <div class="card_body">
+                <a class="linked-1" href="{% url 'accaunt:profile_edit' request.user.pk %}">
+                    {% blocktranslate %}Profilni o'zgartirish{% endblocktranslate %}!
+                </a>
+                <a class="linked-2" href="{% url 'click:result_list' %}">
+                    {% blocktranslate %}Natijalarim{% endblocktranslate %}
+                </a>
+                <a class="linked-3" href="{% url 'accaunt:profile_delete' request.user.pk %}">
+                    {% blocktranslate %}Profilni o'chirish{% endblocktranslate %}!
+                </a>
+            </div>
+        </div>
+
+{% endblock %}

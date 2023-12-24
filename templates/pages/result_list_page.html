@@ -1,0 +1,33 @@
+{% extends 'base.html'%}
+{% load i18n %}
+{% load static %}
+
+
+{% block title %}
+    Natijalar
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+            {% if result_list %}
+    	        <div class="list-group mt-5">
+            {% for result in result_list %}
+                  <a href="{% url 'click:result' result.id %}" class="list-group-item list-group-item-action" aria-current="true">
+                  
+                    <div class=" d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">
+                             {{ result }} 
+                        </h5>
+                        <small>{{ result.date_completed|date:"d/m/Y H:i:s" }}</small>
+                    </div>
+                  </a> 
+
+                
+            {% endfor %}
+        </div>
+        {% else %}
+    	    {% blocktranslate %}Siz hali variant ishlamadingiz{% endblocktranslate %} !!!
+        {% endif %} 
+    
+    </div>
+{% endblock %}

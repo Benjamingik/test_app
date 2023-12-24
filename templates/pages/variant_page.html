@@ -1,0 +1,25 @@
+{% extends 'base.html'%}
+{% load i18n %}
+
+{% block title %}
+    VARIANT
+{% endblock %}
+
+{% block content%}
+    <div class="container-subject">
+{#        <h3>#}
+{#            {% blocktranslate %}Variantni tanlang{% endblocktranslate %}#}
+{#        </h3>#}
+        <div class="container">
+            <a href="{% url 'click:variant_create' %}?subject={{ subject.id|urlencode }}"
+                    class="list-group-item list-group-item-action">Variant yaratish</a>
+            <h4>{% blocktranslate %}Variantni tanlang{% endblocktranslate %}:</h4>
+        <div class="list-group">
+            {% for variant in variant_list %}
+                    <a class="list-group-item list-group-item-action linked" href="{% url 'click:variant' variant.id %}">{{ variant.title }}</a>
+            {% endfor %}
+        </div>
+            
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}
+    Edit page
+{% endblock %}
+
+{% block content %}
+    <h1>{% blocktranslate %}Profilni o'zgartirish{% endblocktranslate %}</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_div }}
+        <button type="submit">{% blocktranslate %}Saqlash{% endblocktranslate %}</button>
+    </form>
+{% endblock %}

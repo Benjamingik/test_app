@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}
+    Register Page
+{% endblock %}
+
+{% block content %}
+    <div class="container m-5">
+        <form method="post" class="w-50 mx-5">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">{% blocktranslate %}Saqlash{% endblocktranslate %}</button>
+        </form>
+    </div>
+{% endblock %}
