@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 from django.utils.translation import gettext_lazy as _
 
@@ -6,9 +7,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-ywza-ld%dsud-$k%a-%2)4xwg6fzdkq^#9ptb$!2c_3^!5!y%-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.vercel.app','now.sh','127.0.0.1','localhost']
 
 # Application definition
 
@@ -65,8 +66,12 @@ WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': '-6ded2b3*A344aG2A3d1-a2C2cFb5BbE',
+        'HOST': 'roundhouse.proxy.rlwy.net',
+        'PORT': '23382',
     }
 }
 
@@ -132,3 +137,5 @@ MEDIA_ROOT = BASE_DIR / 'media-files'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')

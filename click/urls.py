@@ -1,3 +1,5 @@
+from django.conf import settings
+from django.conf.urls.static import static
 from django.urls import path
 
 from click.views import result_view, subject_list_view, subject_view, variant_view, result_list_view, VariantCreateView
@@ -14,3 +16,5 @@ urlpatterns = [
     path('variant/create/', VariantCreateView.as_view(), name='variant_create')
     # path('/<int:pk>')
 ]
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
