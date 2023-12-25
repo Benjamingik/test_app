@@ -8,6 +8,7 @@ pillow = "*"
 django-modeltranslation = "*"
 django-widget-tweaks = "*"
 gunicorn = "*"
+django = "===4.2.8"
 
 [dev-packages]
 

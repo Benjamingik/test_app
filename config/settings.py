@@ -69,9 +69,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'railway',
         'USER': 'postgres',
-        'PASSWORD': '-6ded2b3*A344aG2A3d1-a2C2cFb5BbE',
-        'HOST': 'roundhouse.proxy.rlwy.net',
-        'PORT': '23382',
+        'PASSWORD': 'fE-AgaB16g2ga-**ADbD2GGAdf*4334a',
+        'HOST': 'monorail.proxy.rlwy.net',
+        'PORT': '59166'
     }
 }
 
@@ -127,8 +127,8 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-STATIC_ROOT = BASE_DIR / 'staticfiles'  # DEBUG=False holat uchun
-STATICFILES_DIRS = [BASE_DIR / 'static']  # DEBUG=True holat uchun
+# STATIC_ROOT = BASE_DIR / 'staticfiles'  # DEBUG=False holat uchun
+# STATICFILES_DIRS = [BASE_DIR / 'static']  # DEBUG=True holat uchun
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media-files'

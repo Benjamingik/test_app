@@ -1,2 +1,5 @@
 .idea
 homebrew
+Pipfile
+Pipfile.lock
+db.sqlite3

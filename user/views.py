@@ -1,6 +1,6 @@
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect
-from django.views import View 
+from django.views import View
 from django.urls import reverse_lazy
 from django.views.generic import DetailView, UpdateView, DeleteView
 
@@ -24,19 +24,22 @@ class RegisterView(View):
             login(request, user)
             return redirect('home')
         return render(request, 'pages/register_page.html', {'form': form})
-    
+
 
 class ProfileView(DetailView):
     model = User
     template_name = 'pages/profile_page.html'
     context_object_name = 'user'
 
+
 def logout_view(request):
     logout(request)
     return redirect('home')
 
+
 class DetailProfileView(View):
     pass
+
 
 class EditProfileView(UpdateView):
     model = User
