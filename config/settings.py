@@ -7,9 +7,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-ywza-ld%dsud-$k%a-%2)4xwg6fzdkq^#9ptb$!2c_3^!5!y%-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['.vercel.app', '.now.sh', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -65,16 +65,25 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'railway',
+#         'USER': 'postgres',
+#         'PASSWORD': 'EF2-a*f*ddfgf*G3*Ec3BAdB65ddbBCA',
+#         'HOST': 'monorail.proxy.rlwy.net',
+#         'PORT': '37973'
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
-        'USER': 'postgres',
-        'PASSWORD': 'EF2-a*f*ddfgf*G3*Ec3BAdB65ddbBCA',
-        'HOST': 'monorail.proxy.rlwy.net',
-        'PORT': '37973'
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -128,8 +137,8 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-# STATIC_ROOT = BASE_DIR / 'staticfiles'  # DEBUG=False holat uchun
-# STATICFILES_DIRS = [BASE_DIR / 'static']  # DEBUG=True holat uchun
+STATIC_ROOT = BASE_DIR / 'staticfiles'  # DEBUG=False holat uchun
+STATICFILES_DIRS = [BASE_DIR / 'static']  # DEBUG=True holat uchun
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media-files'
@@ -138,5 +147,3 @@ MEDIA_ROOT = BASE_DIR / 'media-files'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
